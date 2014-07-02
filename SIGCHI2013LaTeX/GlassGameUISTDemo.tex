@@ -65,7 +65,7 @@ breaklinks=true,
 % End of preamble. Here it comes the document.
 \begin{document}
 
-\title{Glass Shooter: Exploring First-Person Shooter Game Design with Google Glass}
+\title{Glass Shooter: Exploring First-Person Shooter\\ Game Design with Google Glass}
 
 \numberofauthors{1} 
 \author{\alignauthor Chun-Yen Hsu, Ying-Chao Tung, Silvia Chyou, Han-Yu Wang, Wei-Jer Lin, Mike Y. Chen \\
@@ -76,7 +76,7 @@ breaklinks=true,
 
 \teaser{
 \centering \includegraphics[width=1.0\textwidth]{GlassGame.png} 
-\caption{(A) Glass Control: We designed a set of gestures on the strip touchpad. Players can move forward by pressing the front side of touchpad. By contrast, players can move back by pressing the back side of touchpad. Fire the weapon by a single tapping. Viewport is controlled by head orientation and scrolling the touchpad can also change the viewport direction; (B) Play with Controller: We use mobile phones to simulate game pad controllers. There are two joysticks on the phone. Left one controls avatar's movement while the right one rotates the direction of viewport. Players can tap anywhere to trigger the current weapon; (C) Play with Metaphor: The player holds the phone as a hand gun, manipulates the phone orientation to aim the target and triggers the gun by sliding the touch screen with a finger; (D) Game screenshot from Glass Shooter on Google Glass.}
+\caption{Comparing Glass-only and Glass+Smartphone interaction for games. Our demos uses head mounted gyro to control the first-person view port, plus: (A) Glass' Touchpad: We designed a set of gestures on the touchpad strip. Players can move forward by touching the front half of the touchpad, and move backward by touching the rear half. Weapons can be fired by using single and double taps. (B) Smartphones as virtual controller: two virtual joysticks and buttons to move and to change the viewport and to fire weapons; (C) Smartphone as tangible device: the phone can be held and used as a hand gun, and a throwing gesture throws a grenade.}
 \label{fig:figure1}
 }
 
@@ -85,22 +85,25 @@ breaklinks=true,
 
 
 \begin{abstract}
-Eyewear computers are claimed to be the next evolution beyond smart phones. In addition, game design for smart glasses game is still an unexplored area. Hence, we wish to explore the game design space on smart glasses. For testing the current game play experience on Google Glass, we recruited 24 users to play four games on Google Glass with different contents and control styles. By collecting users' imagination, we found 50\% of users want to play a First-Person Shooter(FPS) game on the Google Glass. Hence, we implemented a FPS game on Google Glass and supply multiple control styles; (a) Glass control; (b) Play with controller; (c) Play with metaphor; to evaluate and explore glass game design.
+Smart Glasses offer the opportunity to use head mounted sensors, such as gyroscope and accelerometers, to enable new types of game interaction. To better understand game play experience on Smart Glasses, we recruited 24 participants to play four current games on Google Glass that uses different interaction methods, including gyro, voice, touchpad, and in-air gesture. Study results showed that participants were concerned with comfort and social acceptance. Also, their favorite input method was gyroscope, and their favorite game type was First-Person Shooter (FPS) game. Hence, we implemented a FPS game on Google Glass using gyro for changing the view port, and implemented multiple control styles: (a) Glass' touchpad; (b) Glass+Smartphone as controllers, (c) Glass+Smartphone as tangible device to evaluate and explore glass game designs.
 \end{abstract}
 
 \keywords{
-	Google Glass, Wearable Devices, Game Design, Head Mounted Display, Multi-Modal, Mobile Phone, Gestures, Physical Activity, Mixed Reality, Augmented Reality, Virtual Reality. }
+	Google Glass, Wearable Devices, Game Design, Head Mounted Display, Multi-Modal, Mobile Phone, Gestures, Physical Activity, Mixed Reality, Augmented Reality, Virtual Reality. 
 }
 
 \category{K.8.0.}{Personal Computing}{General Games}
 
 
 \section{Introduction}
-Wearable devices are described as the next generation of smart devices because of their portability and computing power. One of the most significant wearable computing break-throughs is Google's new ``eyewear computer'', expecting to be commercially available in 2014 referred to as Glass~\cite{glass}. Due to the similarity between wearable devices and smart phones, many applications can be transferred to wearable devices, such as games. Recent statistics show that around 70-80\% of all mobile downloads is composed of mobile games\cite{statistics,infographic}. Traditional game design has tons of guidelines~\cite{videogame,mobilegame,bodygame,gameflow,argame,wearable}. However, it's lack of official research for smart glasses game design.% computers are claimed to be the next evolution beyond smartphones. 
+Games are the most popular type of mobile apps, with recent statistics showing that 70-80\% of all mobile downloads being mobile games\cite{statistics,infographic}. Although mobile game design has many well-known guidelines~\cite{videogame,mobilegame,bodygame,gameflow,argame,wearable}, game design for Smart Glasses has not been explored.% computers are claimed to be the next evolution beyond smartphones. 
 %Game is one of the most important application in computer science.
 
-Thus, we intend to explore the game design on smart glasses. Although there are several smart glasses products on the market over these years, we choose the most famous one, Google Glass, as our main research platform. To realize the current gameplay experience on google glass, we recruited 24 users to play 4 existing Google Glass games~\cite{minigame}, which has different game contents and control styles between each other. 
-After analyzing users’ feedback, there are three novel issues, ``Limited control'', ``Eye tiring'' and ``Social acceptable'', which never exist in traditional game design guidelines. In our current work, we only focus on ``limited control''. Compared to other gaming platforms, there is no effective powerful input such as mouse, keyboard, joystick or touch screen. There are some non-traditional gaming inputs such as camera, strip touchpad, microphone, gyroscope, and accelerometer. How to design glass game in such a limited control device and how to extend its input power are open questions for people to discuss and explore. First, we ask users to imagine game type which they liked the most. According to game imagination results of users, 50\% of users want to play First-Person Shooter(FPS) game on Google Glass. Therefore, we implement a FPS game,``Glass Shooter'', with multiple control styles to explore glass game design space and understand user preference.
+%There are several Smart Glasses products on the market over these years, we choose the most famous one, Google Glass, as our main research platform. To realize the current gameplay experience on google glass, 
+To better understand game design for Smart Glasses, we recruited 24 users to play 4 existing games~\cite{minigame} on the most popular Smart Glasses, Google Glass. The four games have been selected to span different game types and control styles. Our study showed three design challenges that are not discussed in current game design guidelines: ``Limited control'', ``Eye strain'' and ``Social acceptance''. 
+
+Also, comparing to other gaming platforms, Smart Glasses do not have input such as mouse, keyboard, joystick, nor touch screen; however, there are some non-traditional wearable sensors such as camera, touchpad, microphone, gyroscope, and accelerometer. Our study showed that most of the users preferred using gyro, and preferred playing First-Person Shooter (FPS) games on Google Glass. Therefore, we implement a FPS game,``Glass Shooter'', with multiple control styles to explore game design space for Smart Glasses and to understand user preference.
+This demo focuses on exploring the ``limited control'' issue and compares Glass-only input to Glass+smartphone input. 
 
 %Eyewear computers, such as google glasses implementation, are claimed to be the next evolution beyond smartphones. In addition, game industry in the US earned about 21.53 dollars in 2014\cite{essentialfacts}. Recent statistics show that around 70-80\% of all mobile downloads is composed of mobile games\cite{statistics,infographic}. Traditional game design has tons of guidelines\cite{videogame,mobilegame,bodygame,gameflow,argame,wearable}. However, the game design for smart glass game is still an unexplored area. Hence, we want to explore the game design space on smart glass. And after concerning current market share, we choose Google Glass as our candidate.
 
